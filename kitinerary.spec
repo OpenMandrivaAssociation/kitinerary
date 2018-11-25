@@ -2,6 +2,10 @@
 %define libname %mklibname KPimItinerary %{major}
 %define devname %mklibname KPimItinerary -d
 
+# Optional requirements misdetected as mandatory by
+# cmake dependency generator
+%define __requires_exclude ^cmake\\(\(ZX|zx\)ing\\)$
+
 Name: 		kitinerary
 Version:	18.11.80
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
