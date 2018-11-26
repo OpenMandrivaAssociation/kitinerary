@@ -30,6 +30,10 @@ BuildRequires: cmake(KF5Mime)
 BuildRequires: cmake(KF5CalendarCore)
 BuildRequires: cmake(KF5Contacts)
 BuildRequires: cmake(KPimPkPass)
+BuildRequires: cmake(ZXing)
+BuildRequires: pkgconfig(libxml-2.0)
+BuildRequires: pkgconfig(poppler)
+BuildRequires: pkgconfig(poppler-qt5)
 BuildRequires: pkgconfig(zlib)
 
 %description
