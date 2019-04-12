@@ -7,14 +7,14 @@
 %define __requires_exclude ^cmake\\(\(ZX|zx\)ing\\)$
 
 Name: 		kitinerary
-Version:	18.12.3
+Version:	19.04.0
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
 %else
 %define ftpdir stable
 %endif
-Release:	2
+Release:	1
 Source0: http://download.kde.org/%{ftpdir}/applications/%{version}/src/%{name}-%{version}.tar.xz
 Summary:	Library for handling Itinerary data
 URL: http://kde.org/
@@ -68,6 +68,7 @@ Development files (Headers etc.) for %{name}.
 
 %files -f %{name}.lang
 %{_sysconfdir}/xdg/org_kde_kitinerary.categories
+%{_libdir}/libexec/kf5/kitinerary-extractor
 
 %files -n %{libname}
 %{_libdir}/libKPimItinerary.so.%{major}*
