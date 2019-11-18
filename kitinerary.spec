@@ -7,7 +7,7 @@
 %define __requires_exclude ^cmake\\(\(ZX|zx\)ing\\)$
 
 Name: 		kitinerary
-Version:	19.08.3
+Version:	19.11.80
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
@@ -69,6 +69,7 @@ Development files (Headers etc.) for %{name}.
 %files -f %{name}.lang
 %{_datadir}/qlogging-categories5/org_kde_kitinerary.categories
 %{_libdir}/libexec/kf5/kitinerary-extractor
+%{_datadir}/mime/packages/application-vnd-kde-itinerary.xml
 
 %files -n %{libname}
 %{_libdir}/libKPimItinerary.so.%{major}*
