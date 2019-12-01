@@ -35,6 +35,7 @@ BuildRequires: pkgconfig(libxml-2.0)
 BuildRequires: pkgconfig(poppler)
 BuildRequires: pkgconfig(poppler-qt5)
 BuildRequires: pkgconfig(zlib)
+BuildRequires: pkgconfig(shared-mime-info)
 
 %description
 Library for handling Itinerary data
