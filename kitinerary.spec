@@ -14,7 +14,7 @@ Version:	20.12.1
 %else
 %define ftpdir stable
 %endif
-Release:	1
+Release:	2
 Source0: http://download.kde.org/%{ftpdir}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 Summary:	Library for handling Itinerary data
 URL: http://kde.org/
@@ -36,9 +36,11 @@ BuildRequires: pkgconfig(poppler)
 BuildRequires: pkgconfig(poppler-qt5)
 BuildRequires: pkgconfig(zlib)
 BuildRequires: pkgconfig(shared-mime-info)
+BuildRequires: pkgconfig(openssl)
+BuildRequires: phonenumber-devel
 
 %description
-Library for handling Itinerary data
+Library for handling Itinerary data.
 
 %package -n %{libname}
 Summary: Library for handling Itinerary data
