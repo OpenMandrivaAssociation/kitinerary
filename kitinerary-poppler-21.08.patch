@@ -1,0 +1,17 @@
+diff -up kitinerary-21.07.90/src/lib/pdf/pdfdocument.cpp.omv~ kitinerary-21.07.90/src/lib/pdf/pdfdocument.cpp
+--- kitinerary-21.07.90/src/lib/pdf/pdfdocument.cpp.omv~	2021-08-08 00:58:57.550911513 +0200
++++ kitinerary-21.07.90/src/lib/pdf/pdfdocument.cpp	2021-08-08 01:03:01.904310214 +0200
+@@ -203,10 +203,11 @@ int PdfDocument::fileSize() const
+ #ifdef HAVE_POPPLER
+ static QDateTime parsePdfDateTime(const char *str)
+ {
++    GooString dt(str);
+     int year, month, day, hour, min, sec, tzHours, tzMins;
+     char tz;
+ 
+-    if (!parseDateString(str, &year, &month, &day, &hour, &min, &sec, &tz, &tzHours, &tzMins)) {
++    if (!parseDateString(&dt, &year, &month, &day, &hour, &min, &sec, &tz, &tzHours, &tzMins)) {
+         return {};
+     }
+ 
+diff -up kitinerary-21.07.90/src/lib/pdf/pdfdocument.h.omv~ kitinerary-21.07.90/src/lib/pdf/pdfdocument.h
