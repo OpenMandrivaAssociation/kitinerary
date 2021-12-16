@@ -38,6 +38,9 @@ BuildRequires: pkgconfig(zlib)
 BuildRequires: pkgconfig(shared-mime-info)
 BuildRequires: pkgconfig(openssl)
 BuildRequires: phonenumber-devel
+# For QCH format docs
+BuildRequires: doxygen
+BuildRequires: qt5-assistant
 
 %description
 Library for handling Itinerary data.
