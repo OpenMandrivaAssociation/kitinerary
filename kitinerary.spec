@@ -25,6 +25,7 @@ BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5Gui)
 BuildRequires: cmake(Qt5Test)
 BuildRequires: cmake(Qt5Qml)
+BuildRequires: qt5-qtqml-private-devel
 BuildRequires: cmake(KF5I18n)
 BuildRequires: cmake(KF5Mime)
 BuildRequires: cmake(KF5CalendarCore)
