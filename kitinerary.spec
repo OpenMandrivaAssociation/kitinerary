@@ -39,6 +39,7 @@ BuildRequires: pkgconfig(zlib)
 BuildRequires: pkgconfig(shared-mime-info)
 BuildRequires: pkgconfig(openssl)
 BuildRequires: phonenumber-devel
+BuildRequires: pkgconfig(absl_container_common)
 # For QCH format docs
 BuildRequires: doxygen
 BuildRequires: qt5-assistant
