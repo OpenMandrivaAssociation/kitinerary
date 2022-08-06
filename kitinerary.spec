@@ -7,7 +7,7 @@
 %define __requires_exclude ^cmake\\(\(ZX|zx\)ing\\)$
 
 Name: 		kitinerary
-Version:	22.04.3
+Version:	22.07.90
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
@@ -16,7 +16,6 @@ Version:	22.04.3
 %endif
 Release:	1
 Source0: http://download.kde.org/%{ftpdir}/release-service/%{version}/src/%{name}-%{version}.tar.xz
-Patch0:		https://invent.kde.org/pim/kitinerary/-/commit/e60195421aa159462353892ed32bf46ac8c57d19.patch
 Summary:	Library for handling Itinerary data
 URL: http://kde.org/
 License: GPL
