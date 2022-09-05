@@ -14,7 +14,7 @@ Version:	22.08.0
 %else
 %define ftpdir stable
 %endif
-Release:	1
+Release:	2
 Source0: http://download.kde.org/%{ftpdir}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 Summary:	Library for handling Itinerary data
 URL: http://kde.org/
