@@ -1,20 +1,22 @@
 %define major 5
-%define libname %mklibname KPimItinerary %{major}
-%define devname %mklibname KPimItinerary -d
+%define oldlibname %mklibname KPimItinerary 5
+%define olddevname %mklibname KPimItinerary -d
+%define libname %mklibname KPim5Itinerary
+%define devname %mklibname KPim5Itinerary -d
 
 # Optional requirements misdetected as mandatory by
 # cmake dependency generator
 %define __requires_exclude ^cmake\\(\(ZX|zx\)ing\\)$
 
 Name: 		kitinerary
-Version:	22.12.3
+Version:	23.03.90
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
 %else
 %define ftpdir stable
 %endif
-Release:	2
+Release:	1
 Source0: http://download.kde.org/%{ftpdir}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 Summary:	Library for handling Itinerary data
 URL: http://kde.org/
@@ -51,6 +53,7 @@ Library for handling Itinerary data.
 Summary: Library for handling Itinerary data
 Group: System/Libraries
 Requires: %{name} >= %{EVRD}
+%rename %{oldlibname}
 
 %description -n %{libname}
 Library for handling Itinerary data
@@ -59,6 +62,7 @@ Library for handling Itinerary data
 Summary: Development files for %{name}
 Group: Development/C
 Requires: %{libname} = %{EVRD}
+%rename %{olddevname}
 
 %description -n %{devname}
 Development files (Headers etc.) for %{name}.
@@ -80,12 +84,12 @@ Development files (Headers etc.) for %{name}.
 %{_datadir}/mime/packages/application-vnd-kde-itinerary.xml
 
 %files -n %{libname}
-%{_libdir}/libKPimItinerary.so.%{major}*
+%{_libdir}/libKPim5Itinerary.so.%{major}*
 
 %files -n %{devname}
-%{_includedir}/KPim/KItinerary
-%{_includedir}/KPim/kitinerary
-%{_includedir}/KPim/*.h
+%{_includedir}/KPim5/KItinerary
+%{_includedir}/KPim5/kitinerary
+%{_includedir}/KPim5/*.h
 %{_libdir}/*.so
 %{_libdir}/cmake/*
 %doc %{_docdir}/qt5/*.{tags,qch}
