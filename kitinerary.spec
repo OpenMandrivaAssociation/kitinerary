@@ -16,8 +16,9 @@ Version:	23.08.5
 %else
 %define ftpdir stable
 %endif
-Release:	4
+Release:	5
 Source0: http://download.kde.org/%{ftpdir}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Patch0:		kitinerary-poppler-23.05.patch
 Summary:	Library for handling Itinerary data
 URL: http://kde.org/
 License: GPL
