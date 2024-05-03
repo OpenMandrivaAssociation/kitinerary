@@ -17,12 +17,13 @@ Version:	24.02.2
 %else
 %define ftpdir stable
 %endif
-Release:	%{?git:0.%{git}.}2
+Release:	%{?git:0.%{git}.}3
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/pim/kitinerary/-/archive/%{gitbranch}/kitinerary-%{gitbranchd}.tar.bz2#/kitinerary-%{git}.tar.bz2
 %else
 Source0: http://download.kde.org/%{ftpdir}/release-service/%{version}/src/kitinerary-%{version}.tar.xz
 %endif
+Patch0:		kitinerary-poppler-23.05.patch
 Summary:	Library for handling Itinerary data
 URL: http://kde.org/
 License: GPL

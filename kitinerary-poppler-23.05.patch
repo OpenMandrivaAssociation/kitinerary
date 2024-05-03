@@ -1,0 +1,24 @@
+diff -up kitinerary-24.02.2/src/lib/pdf/pdfdocument.cpp.1~ kitinerary-24.02.2/src/lib/pdf/pdfdocument.cpp
+--- kitinerary-24.02.2/src/lib/pdf/pdfdocument.cpp.1~	2024-04-08 17:41:51.000000000 +0200
++++ kitinerary-24.02.2/src/lib/pdf/pdfdocument.cpp	2024-05-04 01:50:27.810622365 +0200
+@@ -13,6 +13,8 @@
+ #include "popplerutils_p.h"
+ #include "logging.h"
+ 
++#include <poppler/UTF.h>
++
+ #include <QDebug>
+ #include <QImage>
+ #include <QScopedValueRollback>
+@@ -330,8 +332,9 @@ QString gooStringToUnicode(const std::un
+         return {};
+     }
+ 
+-    if (s->hasUnicodeMarker() || s->hasUnicodeMarkerLE()) {
+-        return QString::fromUtf16(reinterpret_cast<const char16_t*>(s->toStr().c_str()), s->toStr().size() / 2);
++    std::string const &str=s->toStr();
++    if (hasUnicodeByteOrderMark(str) || hasUnicodeByteOrderMarkLE(str)) {
++        return QString::fromUtf16(reinterpret_cast<const char16_t*>(str.c_str()), str.size() / 2);
+     } else {
+         int len = 0;
+         std::unique_ptr<const char[]> utf16Data(pdfDocEncodingToUTF16(s->toStr(), &len));
