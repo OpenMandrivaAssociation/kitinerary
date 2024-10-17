@@ -24,7 +24,7 @@ Source0:	https://invent.kde.org/pim/kitinerary/-/archive/%{gitbranch}/kitinerary
 Source0: http://download.kde.org/%{ftpdir}/release-service/%{version}/src/kitinerary-%{version}.tar.xz
 %endif
 Summary:	Library for handling Itinerary data
-URL: http://kde.org/
+URL: https://kde.org/
 License: GPL
 Group: System/Libraries
 BuildRequires: cmake(ECM)
