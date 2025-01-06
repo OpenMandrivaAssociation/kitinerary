@@ -1,0 +1,34 @@
+diff -up kitinerary-23.08.5/src/lib/pdf/pdfdocument.cpp.2~ kitinerary-23.08.5/src/lib/pdf/pdfdocument.cpp
+--- kitinerary-23.08.5/src/lib/pdf/pdfdocument.cpp.2~	2025-01-06 02:29:00.618826108 +0100
++++ kitinerary-23.08.5/src/lib/pdf/pdfdocument.cpp	2025-01-06 02:35:30.975955953 +0100
+@@ -40,13 +40,8 @@ void PdfPagePrivate::load()
+     m_doc->m_popplerDoc->processLinks(&device, m_pageNum + 1);
+     device.finalize();
+     const auto pageRect = m_doc->m_popplerDoc->getPage(m_pageNum + 1)->getCropBox();
+-    std::unique_ptr<GooString> s(device.getText(pageRect->x1, pageRect->y1, pageRect->x2, pageRect->y2));
+-
+-#if KPOPPLER_VERSION >= QT_VERSION_CHECK(0, 72, 0)
+-    m_text = QString::fromUtf8(s->c_str());
+-#else
+-    m_text = QString::fromUtf8(s->getCString());
+-#endif
++    const auto s = device.getText(pageRect->x1, pageRect->y1, pageRect->x2, pageRect->y2);
++    m_text = QString::fromUtf8(s.c_str());
+     m_images = std::move(device.m_images);
+     for (auto it = m_images.begin(); it != m_images.end(); ++it) {
+         (*it).d->m_page = this;
+@@ -111,12 +106,8 @@ QString PdfPage::textInRect(double left,
+ 
+     TextOutputDev device(nullptr, false, 0, false, false);
+     d->m_doc->m_popplerDoc->displayPageSlice(&device, d->m_pageNum + 1, 72, 72, 0, false, true, false, -1, -1, -1, -1);
+-    std::unique_ptr<GooString> s(device.getText(l, t, r, b));
+-#if KPOPPLER_VERSION >= QT_VERSION_CHECK(0, 72, 0)
+-    return QString::fromUtf8(s->c_str());
+-#else
+-    return QString::fromUtf8(s->getCString());
+-#endif
++    const auto s = device.getText(l, t, r, b);
++    return QString::fromUtf8(s.c_str());
+ }
+ 
+ int PdfPage::imageCount() const
