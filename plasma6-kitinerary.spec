@@ -51,6 +51,9 @@ BuildRequires: pkgconfig(absl_container_common)
 BuildRequires: doxygen
 BuildRequires: qt6-qttools-assistant
 
+%patchlist
+https://invent.kde.org/pim/kitinerary/-/commit/bcb009f56f8f1c9c0d1612a0ec9f581907b51534.patch
+
 %description
 Library for handling Itinerary data.
 
