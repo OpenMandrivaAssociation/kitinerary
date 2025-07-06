@@ -17,7 +17,7 @@ Version:	25.04.0
 %else
 %define ftpdir stable
 %endif
-Release:	%{?git:0.%{git}.}4
+Release:	%{?git:0.%{git}.}5
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/pim/kitinerary/-/archive/%{gitbranch}/kitinerary-%{gitbranchd}.tar.bz2#/kitinerary-%{git}.tar.bz2
 %else
