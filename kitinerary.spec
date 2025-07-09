@@ -9,7 +9,7 @@
 # cmake dependency generator
 %define __requires_exclude ^cmake\\(\(ZX|zx\)ing\\)$
 
-Name: 		plasma6-kitinerary
+Name: 		kitinerary
 Version:	25.04.0
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
