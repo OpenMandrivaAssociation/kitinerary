@@ -10,7 +10,7 @@
 %define __requires_exclude ^cmake\\(\(ZX|zx\)ing\\)$
 
 Name: 		kitinerary
-Version:	25.08.3
+Version:	25.12.0
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
