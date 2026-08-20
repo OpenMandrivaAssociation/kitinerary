@@ -10,14 +10,14 @@
 %define __requires_exclude ^cmake\\(\(ZX|zx\)ing\\)$
 
 Name: 		kitinerary
-Version:	26.04.3
+Version:	26.08.0
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
 %else
 %define ftpdir stable
 %endif
-Release:	%{?git:0.%{git}.}2
+Release:	%{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/pim/kitinerary/-/archive/%{gitbranch}/kitinerary-%{gitbranchd}.tar.bz2#/kitinerary-%{git}.tar.bz2
 %else
@@ -36,7 +36,7 @@ BuildRequires: cmake(Qt6Qml)
 BuildRequires: cmake(KF6I18n)
 BuildRequires: cmake(KF6CalendarCore)
 BuildRequires: cmake(KF6Contacts)
-BuildRequires: cmake(KPim6Mime)
+BuildRequires: cmake(KF6Mime)
 BuildRequires: cmake(KPim6PkPass)
 BuildRequires: cmake(ZXing)
 BuildRequires: pkgconfig(libxml-2.0)
@@ -55,6 +55,7 @@ BuildRequires: qt6-qttools-assistant
 %rename plasma6-kitinerary
 
 BuildSystem:	cmake
+BuildOption:	-DBUILD_PYTHON_BINDINGS:BOOL=OFF
 BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 
 %description
