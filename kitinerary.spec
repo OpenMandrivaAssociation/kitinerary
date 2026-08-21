@@ -7,7 +7,7 @@
 
 # Optional requirements misdetected as mandatory by
 # cmake dependency generator
-%define __requires_exclude ^cmake\\(\(ZX|zx\)ing\\)$
+%define __requires_exclude ^cmake\\(\(ZX|zx\)ing\\)$|cmake\\(KPim6Mime\\)|cmake\\(kpim6mime\\)
 
 Name: 		kitinerary
 Version:	26.08.0
