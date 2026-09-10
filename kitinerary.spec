@@ -10,7 +10,7 @@
 %define __requires_exclude ^cmake\\(\(ZX|zx\)ing\\)$|cmake\\(KPim6Mime\\)|cmake\\(kpim6mime\\)
 
 Name: 		kitinerary
-Version:	26.08.0
+Version:	26.08.1
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
