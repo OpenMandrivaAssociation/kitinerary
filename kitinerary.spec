@@ -10,14 +10,14 @@
 %define __requires_exclude ^cmake\\(\(ZX|zx\)ing\\)$|cmake\\(KPim6Mime\\)|cmake\\(kpim6mime\\)
 
 Name: 		kitinerary
-Version:	26.08.1
+Version:	26.08.2
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
 %else
 %define ftpdir stable
 %endif
-Release:	%{?git:0.%{git}.}3
+Release:	%{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/pim/kitinerary/-/archive/%{gitbranch}/kitinerary-%{gitbranchd}.tar.bz2#/kitinerary-%{git}.tar.bz2
 %else
